@@ -3,7 +3,7 @@
 <%end%>
 
 <%= form_tag "/login" do %>
-  Username: <%= text_field_tag "username", @user.username %><br>
+  Email: <%= email_field_tag "email", @user.email %><br>
    Password: <%= password_field_tag "password", @user.password %><br>
   <%= submit_tag "Login" %><br>
  <%=link_to 'Login via GOOGLE', '/auth/google_oauth2'%>

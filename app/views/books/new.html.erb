@@ -1,0 +1,8 @@
+<h1>HEY</h1>
+<%= simple_form_for @book do |f|%>
+<%= f.error_notification %>
+<%= f.input :title%>
+<%= f.input :author%>
+ <%= f.input :completed, as: :boolean, checked_value: true, unchecked_value: false %>
+<%= f.button :submit %>
+<%end%>

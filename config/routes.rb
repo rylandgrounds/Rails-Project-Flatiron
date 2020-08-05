@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :reviews
   resources :books
   resources :users
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   post '/signup' => "users#create"
   get '/auth/:provider/callback', to: 'sessions#create'
   resources :reviews
-  resources :books
+  resources :books do
+    resources :reviews, only:[:new, :create, :index]
   resources :users
 end

@@ -1,8 +1,13 @@
-<h1>HEY</h1>
-<%= simple_form_for @book do |f|%>
-<%= f.error_notification %>
-<%= f.input :title%>
-<%= f.input :author%>
- <%= f.input :completed, as: :boolean, checked_value: true, unchecked_value: false %>
-<%= f.button :submit %>
+<%= form_for(@book) do |f| %>
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title %><br>
+    <%= f.label :author, "Author:" %>
+    <%= f.text_field :author %><br>
+    <%= f.label :complete, "Completed:" %>
+    <%= f.check_box :completed %> <br />
+    <%= f.fields_for :category do |c|%>
+        <%= c.label :name, "Category:" %>
+        <%= c.text_field :name %>
+    <% end %>
+<%= f.submit  %>
 <%end%>

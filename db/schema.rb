@@ -10,22 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_003304) do
+ActiveRecord::Schema.define(version: 2020_08_04_212924) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.string "user_id"
     t.boolean "completed"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id", null: false
-    t.index ["category_id"], name: "index_books_on_category_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.integer "book_id"
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,5 +38,4 @@ ActiveRecord::Schema.define(version: 2020_08_05_003304) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "books", "categories"
 end

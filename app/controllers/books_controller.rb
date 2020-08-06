@@ -1,29 +1,35 @@
 class BooksController < ApplicationController
     before_action :current_user
+    
+    
     def new
         @book = Book.new
-        @book.build_category
     end
     
     def create
-        byebug
         @book = @current_user.books.build(book_params)
-
         if @book.save
-            redirect_to 'users/show'
+            redirect_to user_path(@current_user)
         else
             redirect_to 'books/new'
         end
     end
    
     def index
-        @books = Book.all
+        @books = Book.all.order(created_at: :desc)
     end
+
+        def show
+            @review = Review.new
+            @book = Book.find(params[:id])
+        end
+
+
 
     private
 
     def book_params
-        params.require(:book).permit(:title, :author, :completed, category_attributes: [:name])
+        params.require(:book).permit(:title, :author, :completed)
     end
 
 

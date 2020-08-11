@@ -1,6 +1,4 @@
- <% if !!flash[:notice] %>
-<%= flash[:notice]%>
-<%end%>
+<%= render partial: '/shared/errors', locals: {obj: @user}%>
 
 <%= form_tag "/login" do %>
   Email: <%= email_field_tag "email", @user.email %><br>

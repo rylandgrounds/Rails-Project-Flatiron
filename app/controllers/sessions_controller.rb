@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def new
-        if logged_in?
+        if current_user
             redirect_to user_path(@current_user)
         else
             @user = User.new

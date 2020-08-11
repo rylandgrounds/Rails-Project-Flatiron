@@ -1,8 +1,13 @@
-<%= simple_form_for @book do |f|%>
-    <%= f.error_notification%>
-    <%= f.input :title, "Title:" %>
-    <%= f.input :author, "Author:" %>
-    <%= f.label :complete, "Completed:" %>
-    <%= f.check_box :completed %> <br />
-<%= f.submit  %>
-<%end%>
+<%= render partial: '/shared/errors', locals: {obj: @book}%>
+
+<%= form_for @book do |f|%>
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title%><br>
+    <%= f.label :title, "Author:"%>
+    <%= f.text_field :author  %><br>
+    <%= f.label :completed, "Completed:" %>
+    <%= f.check_box :completed%>
+    <br>
+
+    <%= f.submit %>
+<% end %>

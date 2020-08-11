@@ -2,8 +2,10 @@
 <h1>Bookshelf</h1>
 <p><%@current_user.books.each do|book|%>
     Title:<%=book.title%><br>
-    :<%=book.author%><br>
+    Author:<%=book.author%><br>
     Completed? <%=book.status%><br>
     <%=link_to 'Add a review or Edit a review!', book_path(book)%><br>
+     <%= link_to "Delete #{book.title}?", book, method: :delete, data: { confirm: "Are you sure this is a good idea?" } %>
+     <%= link_to "All Books", books_path%>
 <%end%>
 </p>

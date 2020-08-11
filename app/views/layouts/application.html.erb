@@ -14,7 +14,7 @@
     <%if @current_user%>
     Welcome, <%= @current_user.email%>!<br>
     <br><%= link_to "Bookshelf", user_path(@current_user)%><br>
-    <br><%= link_to "Logout", logout_path%><br><br>
+    <br><%= link_to "Logout", '/logout', method: "delete"%><br><br>
   <%else%>
   Please
 <%=link_to "Login", login_path%>

@@ -18,7 +18,7 @@ module ApplicationHelper
     def require_ownership
         @review = Review.find_by(id: params[:id])
         if @review.user.id != current_user.id
-            redirect_to user_path(current_user)
+            redirect_to user_path(@current_user)
         end
     end
 end

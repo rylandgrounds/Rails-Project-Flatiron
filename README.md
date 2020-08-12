@@ -17,21 +17,26 @@ _____________
 _____________
 
 What makes your project stand out?
-
-
+It provides a functional user shelf app with plans to scale to allow a google api to search books.
+_____________
 Installation
-Provide step by step series of examples and explanations about how to get a development env running.
-
-API Reference
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+Aside from the standard running of bundle and migrations there is little other set up requirements.
+_____________
 
 
 How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+_____________
+After booting up either a local server or hosting it, it should be good to go out of the box.
+_____________
 
 Contribute
-Let people know how they can contribute into your project. A contributing guideline will be a big plus.
-
+_____________
+Feel free to intergrate an api if desired or make css changes.
+____________
 Credits
+_____________
+Flatiron School and my cohort lead Jenn Hansen for  the knowledge and skills to make this a reality.
+_____________
+
 
 

@@ -2,4 +2,5 @@
 Book Title:<%=@book.title%>
 <br>Reviewer: <%=review.user.email%><br>
 <br>Review: <%= review.content %><br>
+<br><%= link_to "Edit Review", edit_review_path(review)%><br>
 <%end%>

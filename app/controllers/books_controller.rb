@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    before_action :current_user
+   
     
     
     def new
@@ -7,16 +7,17 @@ class BooksController < ApplicationController
     end
     
     def create
-        @book = @current_user.books.build(book_params)
+        @book = current_user.books.build(book_params)
         if @book.save
-            redirect_to user_path(@current_user)
+            redirect_to user_path(current_user)
         else
-            redirect_to 'books/new'
+            redirect_to :new
         end
     end
    
     def index
-        @books = Book.all.order(created_at: :desc)
+        
+        @books = Book.alpha
     end
 
         def show
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
  
         def destroy
             Book.find(params[:id]).destroy
-           redirect_to user_path(@current_user)
+           redirect_to user_path(current_user)
           end
 
     private

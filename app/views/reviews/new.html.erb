@@ -1,6 +1,4 @@
-<%= simple_form_for ([@book, @review]) do |f|%>
-    <%= f.error_notification %>
-    <h1> Review Form</h1>
-    <%= f.input :content%>
-    <%= f.button :submit %>
+<%= form_for([@book, @review]) do |f|%>
+<%= render partial: '/shared/errors', locals: {obj: @review}%>
+ <%= render partial: 'form', locals:{f: f}%>
 <%end%>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/signup' => "users#create"
   get '/users/:id', to: 'users#show', as: 'user'
   get '/auth/:provider/callback', to: 'sessions#create'
-  resources :reviews
+  resources :reviews, only: [:edit, :destroy, :update, :show]
   resources :books do
     resources :reviews, only:[:new, :create, :index]
   end

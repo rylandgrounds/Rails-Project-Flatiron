@@ -1,4 +1,5 @@
 <%@book.reviews.each do |review|%>
-<br>Reviewer: <%=review.creator.email%><br>
+Book Title:<%=@book.title%>
+<br>Reviewer: <%=review.user.email%><br>
 <br>Review: <%= review.content %><br>
 <%end%>

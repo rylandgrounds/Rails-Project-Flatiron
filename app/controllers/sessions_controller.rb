@@ -15,13 +15,13 @@ class SessionsController < ApplicationController
     def create
         if auth_hash = request.env["omniauth.auth"]
             @user = User.find_or_create_by_omniauth(auth_hash)
-            session[:id] = @user.id
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
-        elsif @user = User.find_by(email: params[:email])  && @user.authenticate(params[:password])
-            session[:id] = @user.id
+        elsif @user.find_user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to '/login', notice: 'Invalid Username or Password.'
+            render :login, notice: 'Invalid Username or Password.'
         end
     end  
     

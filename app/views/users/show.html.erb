@@ -1,11 +1,12 @@
 <nav><%=link_to 'Add a book.', '/books/new'%></nav>
 <h1>Bookshelf</h1>
-<p><%@current_user.books.each do|book|%>
+<p><%current_user.books.each do|book|%><br>
     Title:<%=book.title%><br>
     Author:<%=book.author%><br>
     Completed? <%=book.status%><br>
     <%=link_to 'Add a review or Edit a review!', book_path(book)%><br>
-     <%= link_to "Delete #{book.title}?", book, method: :delete, data: { confirm: "Are you sure this is a good idea?" } %>
-     <%= link_to "All Books", books_path%>
+     <%= link_to "Delete #{book.title}?", book, method: :delete, data: { confirm: "Are you sure this is a good idea?" } %><br><br>
 <%end%>
+<br><br><%= link_to "All Books", books_path%><br><br>
+
 </p>

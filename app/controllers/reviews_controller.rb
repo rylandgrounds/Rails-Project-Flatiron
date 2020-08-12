@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
-    before_action :current_user
-   
-    def new
+   before_action :require_login
+   before_action :require_ownership, only: [:edit, :update]
+    
+   def new
         @review = Review.new
         @book = Book.find_by(id: params[:book_id])
     end
@@ -9,11 +10,11 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params) 
         @review.book_id = params[:book_id]
-        @review.user_id = @current_user.id
+        @review.user_id = current_user.id
         if @review.save
             redirect_to review_path(@review)
         else 
-            redirect_to 'reviews/new'
+            render "new"
         end
     end
     
@@ -24,6 +25,18 @@ class ReviewsController < ApplicationController
     def index
         @book = Book.find_by(id: params[:book_id])
         @reviews = @book.reviews
+    end
+    
+    def edit
+        @review = Review.find_by(id: params[:id])
+    end
+
+    def update
+        if @review.update(review_params)
+            redirect_to review_path(@review)
+        else
+            render :edit
+        end
     end
 
     private

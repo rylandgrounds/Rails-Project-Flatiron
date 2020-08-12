@@ -1,2 +1,3 @@
-Book Title:<%= @review.book.title%>
-Your Review:<%= @review.content%>
+Book Title:<%= @review.book.title%><br>
+Your Review:<%= @review.content%><br>
+<br><%= link_to "Edit Review", edit_review_path(@review)%><br>

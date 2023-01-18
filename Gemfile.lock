@@ -85,8 +85,6 @@ GEM
     erubi (1.9.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    fast_jsonapi (1.5)
-      activesupport (>= 4.2)
     ffi (1.13.1)
     ffi (1.13.1-java)
     ffi (1.13.1-x64-mingw32)
@@ -156,7 +154,7 @@ GEM
       nio4r (~> 2.0)
     puma (4.3.5-java)
       nio4r (~> 2.0)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -269,7 +267,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   dotenv-rails
-  fast_jsonapi
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth
